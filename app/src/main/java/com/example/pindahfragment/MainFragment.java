@@ -29,7 +29,7 @@ public class MainFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    Button pindahaktifiti,pindahfragment;
+    Button pindahaktifiti,pindahfragment,pindahobjek;
     EditText inputdata;
     public MainFragment() {
         // Required empty public constructor
@@ -73,9 +73,12 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
         pindahaktifiti=view.findViewById(R.id.bpindah);
         pindahfragment=view.findViewById(R.id.bpindahfragment);
         inputdata=view.findViewById(R.id.inputdata);
+        pindahobjek=view.findViewById(R.id.pindahobjek);
 
         pindahaktifiti.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,9 +93,27 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, BlankFragment.newInstance("data1","data2"));
+                ft.replace(R.id.frame, BlankFragment.newInstance(inputdata.getText().toString()));
                 ft.addToBackStack(null);
                 ft.commit();
+            }
+        });
+        pindahobjek.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Mahasiswa mahasiswa = new Mahasiswa();
+                mahasiswa.setNama(inputdata.getText().toString());
+                mahasiswa.setNohp("000000");
+                mahasiswa.setAlamat("jalan todak");
+
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.frame, ObjectFragment.newInstance(mahasiswa));
+                ft.addToBackStack(null);
+                ft.commit();
+
+
+
+
             }
         });
     }

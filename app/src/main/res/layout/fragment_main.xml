@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
-        android:text="Pindah Aktifi"
+        android:text="@string/pindah_aktifi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,4 +38,13 @@
         app:layout_constraintBottom_toTopOf="@+id/bpindah"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/pindahobjek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="pindah dengan objek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bpindahfragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
